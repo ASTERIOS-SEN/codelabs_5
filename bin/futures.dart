@@ -8,7 +8,6 @@ void future() {
   print('Fetching user order...');
 }
 
-
 //Ejercicio: Practique el uso de async y await
 
 Future<String> fetchRole() async {
@@ -24,30 +23,27 @@ Future<int> fetchLoginAmount() async {
 }
 
 Future<String?> reportUserRole() async {
-  try{
-   var username = await fetchRole();
-   return 'User role: $username';
+  try {
+    var username = await fetchRole();
+    return 'User role: $username';
   } catch (err) {
     print('Caught error: $err');
   }
- }
+}
 
 Future<String?> reportLogins() async {
-  try{
-   var logins = await fetchLoginAmount();
-   return 'Total number of logins: $logins';
+  try {
+    var logins = await fetchLoginAmount();
+    return 'Total de sessiones: $logins';
   } catch (err) {
     print('Caught error: $err');
   }
-  
 }
 
 void returnFuture() async {
   print(await reportUserRole());
   print(await reportLogins());
 }
-
-
 
 Future<String> fetchUsername() async {
   // Simulamos una espera de 2 segundos para obtener el nombre de usuario
@@ -61,9 +57,8 @@ Future<int> logoutUser() async {
   return 10; // Retorna la cantidad de logins
 }
 
-
 //Ejercicio: poner todo junto
-String addHello(String user) => 'Hello $user';
+String addHello(String user) => 'Hola $user';
 
 Future<String> greetUser() async {
   var username = await fetchUsername();
@@ -73,7 +68,7 @@ Future<String> greetUser() async {
 Future<String> sayGoodbye() async {
   try {
     var result = await logoutUser();
-    return '$result Thanks, see you next time';
+    return '$result Adios, hasta luego!';
   } catch (e) {
     return 'Failed to logout user: $e';
   }
